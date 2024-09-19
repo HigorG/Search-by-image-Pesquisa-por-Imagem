@@ -1,16 +1,16 @@
-from skimage.morphology import skeletonize
+from skimage.morphology import skeletonize, binary_erosion
 from skimage import data
 import matplotlib.pyplot as plt
 from skimage.util import invert
 from skimage import data, img_as_float, io
-# Invert the horse image
-image = io.imread('corp.jpeg')
-image = img_as_float(image)
-image = invert(image)
+# Read the image
+image = io.imread('corp.jpeg', as_gray=True)
 
+# Binarize the image
+_, binary_image = 'corp.jpeg' (image, 0, 255, 'corp.jpeg'.THRESH_BINARY_INV + 'corp.jpeg'.THRESH_OTSU)
 
-# perform skeletonization=
-skeleton = skeletonize(image)
+# Perform skeletonization
+skeleton = skeletonize(binary_image)
 
 # display results
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(8, 4), sharex=True, sharey=True)
